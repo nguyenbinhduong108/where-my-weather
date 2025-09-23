@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "total_regions": 26,
+    "creation_date": "2025-09-22T17:02:29.456620",
+    "description": "Danh sách các khu vực để khai thác"
+  },
+  "regions": {
+    "vietnam_hanoi": {
+      "name": "Hà Nội, Việt Nam",
+      "lat": 21.0285,
+      "lon": 105.8542,
+      "continent": "Asia"
+    },
+    "vietnam_hcmc": {
+      "name": "TP.HCM, Việt Nam",
+      "lat": 10.8231,
+      "lon": 106.6297,
+      "continent": "Asia"
+    },
+    "japan_tokyo": {
+      "name": "Tokyo, Nhật Bản",
+      "lat": 35.6762,
+      "lon": 139.6503,
+      "continent": "Asia"
+    },
+    "china_beijing": {
+      "name": "Bắc Kinh, Trung Quốc",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "continent": "Asia"
+    },
+    "india_mumbai": {
+      "name": "Mumbai, Ấn Độ",
+      "lat": 19.076,
+      "lon": 72.8777,
+      "continent": "Asia"
+    },
+    "thailand_bangkok": {
+      "name": "Bangkok, Thái Lan",
+      "lat": 13.7563,
+      "lon": 100.5018,
+      "continent": "Asia"
+    },
+    "singapore": {
+      "name": "Singapore",
+      "lat": 1.3521,
+      "lon": 103.8198,
+      "continent": "Asia"
+    },
+    "australia_sydney": {
+      "name": "Sydney, Úc",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "continent": "Oceania"
+    },
+    "uk_london": {
+      "name": "London, Anh",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "continent": "Europe"
+    },
+    "france_paris": {
+      "name": "Paris, Pháp",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "continent": "Europe"
+    },
+    "germany_berlin": {
+      "name": "Berlin, Đức",
+      "lat": 52.52,
+      "lon": 13.405,
+      "continent": "Europe"
+    },
+    "italy_rome": {
+      "name": "Rome, Ý",
+      "lat": 41.9028,
+      "lon": 12.4964,
+      "continent": "Europe"
+    },
+    "russia_moscow": {
+      "name": "Moscow, Nga",
+      "lat": 55.7558,
+      "lon": 37.6173,
+      "continent": "Europe"
+    },
+    "spain_madrid": {
+      "name": "Madrid, Tây Ban Nha",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "continent": "Europe"
+    },
+    "usa_new_york": {
+      "name": "New York, Mỹ",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "continent": "North America"
+    },
+    "usa_los_angeles": {
+      "name": "Los Angeles, Mỹ",
+      "lat": 34.0522,
+      "lon": -118.2437,
+      "continent": "North America"
+    },
+    "usa_chicago": {
+      "name": "Chicago, Mỹ",
+      "lat": 41.8781,
+      "lon": -87.6298,
+      "continent": "North America"
+    },
+    "canada_toronto": {
+      "name": "Toronto, Canada",
+      "lat": 43.6532,
+      "lon": -79.3832,
+      "continent": "North America"
+    },
+    "brazil_sao_paulo": {
+      "name": "São Paulo, Brazil",
+      "lat": -23.5505,
+      "lon": -46.6333,
+      "continent": "South America"
+    },
+    "brazil_rio": {
+      "name": "Rio de Janeiro, Brazil",
+      "lat": -22.9068,
+      "lon": -43.1729,
+      "continent": "South America"
+    },
+    "argentina_buenos_aires": {
+      "name": "Buenos Aires, Argentina",
+      "lat": -34.6118,
+      "lon": -58.396,
+      "continent": "South America"
+    },
+    "egypt_cairo": {
+      "name": "Cairo, Ai Cập",
+      "lat": 30.0444,
+      "lon": 31.2357,
+      "continent": "Africa"
+    },
+    "south_africa_cape_town": {
+      "name": "Cape Town, Nam Phi",
+      "lat": -33.9249,
+      "lon": 18.4241,
+      "continent": "Africa"
+    },
+    "nigeria_lagos": {
+      "name": "Lagos, Nigeria",
+      "lat": 6.5244,
+      "lon": 3.3792,
+      "continent": "Africa"
+    },
+    "uae_dubai": {
+      "name": "Dubai, UAE",
+      "lat": 25.2048,
+      "lon": 55.2708,
+      "continent": "Asia"
+    },
+    "saudi_riyadh": {
+      "name": "Riyadh, Saudi Arabia",
+      "lat": 24.7136,
+      "lon": 46.6753,
+      "continent": "Asia"
+    }
+  }
+}
