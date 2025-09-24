@@ -23,7 +23,7 @@ const createCustomIcon = (region: Region, imageUrl: string) => {
     html: `
       <div style="animation-delay:${delay}s"
           class="relative flex flex-col items-center justify-start 
-                  w-6 h-8 bg-red-500 rounded-[50%_50%_50%_0] rotate-[-45deg] border-2 border-white
+                  w-6 h-8 bg-blue-400 rounded-[50%_50%_50%_0] rotate-[-45deg] border-2 border-white
                   transition-all duration-500 ease-in-out overflow-hidden
                   group-hover:rotate-0 group-hover:w-52 group-hover:h-52 group-hover:rounded-xl group-hover:bg-white
                   shadow-lg drop-pin p-2">
