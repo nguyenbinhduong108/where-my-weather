@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+html, body, #__next, main {
+  height: 100%;
+  margin: 0;
+}
+
+/* Hide scrollbars for elements with .no-scrollbar */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
