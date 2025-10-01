@@ -1,7 +1,7 @@
 export async function serverPost(path: string, body?: any, init?: RequestInit) {
-  const base = process.env.BASR_API || process.env.NEXT_PUBLIC_BASR_API || "";
+  const base = process.env.BASR_API || process.env.BASR_API || "";
   if (!base) {
-    throw new Error("Backend base URL not configured (BASR_API or NEXT_PUBLIC_BASR_API)");
+    throw new Error("Backend base URL not configured (BASR_API or BASR_API)");
   }
 
   const url = `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
@@ -24,9 +24,9 @@ export async function serverPost(path: string, body?: any, init?: RequestInit) {
 }
 
 export async function serverGet(path: string, init?: RequestInit) {
-  const base = process.env.BASR_API || process.env.NEXT_PUBLIC_BASR_API || "";
+  const base = process.env.BASR_API || process.env.BASR_API || "";
   if (!base) {
-    throw new Error("Backend base URL not configured (BASR_API or NEXT_PUBLIC_BASR_API)");
+    throw new Error("Backend base URL not configured (BASR_API or BASR_API)");
   }
 
   const url = `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
@@ -36,9 +36,9 @@ export async function serverGet(path: string, init?: RequestInit) {
 }
 
 export async function serverPut(path: string, body?: any, init?: RequestInit) {
-  const base = process.env.BASR_API || process.env.NEXT_PUBLIC_BASR_API || "";
+  const base = process.env.BASR_API || process.env.BASR_API || "";
   if (!base) {
-    throw new Error("Backend base URL not configured (BASR_API or NEXT_PUBLIC_BASR_API)");
+    throw new Error("Backend base URL not configured (BASR_API or BASR_API)");
   }
 
   const url = `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
@@ -54,9 +54,9 @@ export async function serverPut(path: string, body?: any, init?: RequestInit) {
 }
 
 export async function serverPatch(path: string, body?: any, init?: RequestInit) {
-  const base = process.env.BASR_API || process.env.NEXT_PUBLIC_BASR_API || "";
+  const base = process.env.BASR_API || process.env.BASR_API || "";
   if (!base) {
-    throw new Error("Backend base URL not configured (BASR_API or NEXT_PUBLIC_BASR_API)");
+    throw new Error("Backend base URL not configured (BASR_API or BASR_API)");
   }
 
   const url = `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
@@ -72,9 +72,9 @@ export async function serverPatch(path: string, body?: any, init?: RequestInit) 
 }
 
 export async function serverDelete(path: string, init?: RequestInit) {
-  const base = process.env.BASR_API || process.env.NEXT_PUBLIC_BASR_API || "";
+  const base = process.env.BASR_API || process.env.BASR_API || "";
   if (!base) {
-    throw new Error("Backend base URL not configured (BASR_API or NEXT_PUBLIC_BASR_API)");
+    throw new Error("Backend base URL not configured (BASR_API or BASR_API)");
   }
 
   const url = `${base.replace(/\/$/, "")}${path.startsWith("/") ? path : `/${path}`}`;
