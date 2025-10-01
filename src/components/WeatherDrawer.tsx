@@ -92,7 +92,7 @@ export default function WeatherDrawer({ open, onClose, title, children, onMonthS
           setDragging(false);
           setDragOffset(0);
         }}
-        className={`fixed top-0 right-0 h-full w-full sm:w-4/5 md:w-1/2 min-w-[500px] max-w-[700px] bg-black/40 shadow-2xl transform flex flex-col`}
+        className={`fixed top-0 right-0 h-full w-full sm:w-4/5 md:w-1/2 max-w-[700px] bg-black/40 shadow-2xl transform flex flex-col`}
         style={{
           zIndex: 2147483648,
           willChange: 'transform, opacity',
