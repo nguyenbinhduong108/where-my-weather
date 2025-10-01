@@ -40,15 +40,15 @@ export default function HomePage() {
       }
 
       const data: WeatherInfo = await res.json();
-      console.log('Weather data:', data);
+      // console.log('Weather data:', data);
       setWeatherData(data);
     } catch (error) {
-      console.error('Failed to fetch weather', error);
+      // console.error('Failed to fetch weather', error);
     }
   };
 
   useEffect(() => {
-    console.log("Selected region key:", regions);
+    // console.log("Selected region key:", regions);
     if (regions) {
       // open drawer immediately and clear previous data so skeletons show
       setWeatherData(null);

@@ -20,7 +20,7 @@ export default function HumidityChart({
 
     // Kiểm tra data có hợp lệ không
     if (!dates || !humidity || dates.length === 0 || humidity.length === 0) {
-      console.warn('Missing or empty data for HumidityChart');
+      // console.warn('Missing or empty data for HumidityChart');
       return;
     }
 

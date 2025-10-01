@@ -27,9 +27,9 @@ export default function PrecipitationChart({
     if (!ctx) return;
 
     // Debug log
-    console.log('Precipitation data:', precipitation);
-    console.log('Dates length:', dates.length);
-    console.log('Precipitation length:', precipitation.length);
+    // console.log('Precipitation data:', precipitation);
+    // console.log('Dates length:', dates.length);
+    // console.log('Precipitation length:', precipitation.length);
 
     const config: ChartConfiguration = {
       type: 'bar',
