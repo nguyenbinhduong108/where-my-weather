@@ -79,7 +79,7 @@ export default function HomePage() {
             }
         >
           {weatherData ? (
-            <div className="gap-04 md:gap-8 grid grid-cols-1 ">
+            <div className="gap-4 md:gap-8 grid grid-cols-1 ">
               {/* Render weather data here */}
               <HumidityChart dates={weatherData.dates} humidity={weatherData.humidity} />
               <PrecipitationChart dates={weatherData.dates} precipitation={weatherData.precipitation} />
