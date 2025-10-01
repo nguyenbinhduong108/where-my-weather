@@ -30,6 +30,20 @@ html, body, #__next, main {
   margin: 0;
 }
 
+/* Ensure drawers full-width on small screens and respect safe-area insets */
+.drawer-full-mobile {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-width: 640px) {
+  /* when drawer is full width it should sit above content without pushing layout */
+  aside[role="dialog"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    right: 0 !important;
+  }
+}
+
 /* Hide scrollbars for elements with .no-scrollbar */
 .no-scrollbar {
   scrollbar-width: none; /* Firefox */

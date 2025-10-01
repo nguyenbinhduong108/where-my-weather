@@ -100,7 +100,7 @@ export default function PrecipitationChart({
   }, [dates, precipitation]);
 
   return (
-    <div className="w-full h-80 p-4 bg-white rounded-lg shadow">
+    <div className="w-full h-64 md:h-80 p-4 bg-white rounded-lg shadow">
       <canvas ref={chartRef}></canvas>
     </div>
   );

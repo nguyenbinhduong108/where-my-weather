@@ -133,7 +133,7 @@ export default function TemperatureChart({
   }, [dates, temperatures, temperatureMax, temperatureMin]);
 
   return (
-    <div className="w-full h-80 p-4 bg-white rounded-lg shadow">
+    <div className="w-full h-64 md:h-80 p-4 bg-white rounded-lg shadow">
       <canvas ref={chartRef}></canvas>
     </div>
   );

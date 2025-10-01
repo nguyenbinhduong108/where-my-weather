@@ -27,6 +27,10 @@ export default function WeatherDrawer({ open, onClose, title, children, onMonthS
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+  const asideRef = useRef<HTMLElement | null>(null);
+  const startXRef = useRef<number>(0);
+  const [dragOffset, setDragOffset] = useState<number>(0);
+  const [dragging, setDragging] = useState<boolean>(false);
 
   useEffect(() => {
     if (open) {
@@ -54,29 +58,63 @@ export default function WeatherDrawer({ open, onClose, title, children, onMonthS
       <div
         onClick={() => onClose()}
         className={`absolute inset-0  transition-opacity duration-700 ${mounted ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        style={{ background: 'rgba(0,0,0,0.45)', opacity: 1 - Math.min(1, dragOffset / (asideRef.current?.offsetWidth || window.innerWidth)) }}
       />
 
       {/* drawer panel */}
       <aside
+        ref={asideRef as any}
         role="dialog"
         aria-modal="true"
-        className={`fixed top-0 right-0 h-full w-[50vw] max-w-[600px] bg-black/40 shadow-2xl transform transition-transform duration-700 ease-out flex flex-col ${visible ? "translate-x-0" : "translate-x-full"}`}
-        style={{ zIndex: 2147483648, willChange: "transform, opacity" }}
+        onPointerDown={(e) => {
+          // start tracking drag
+          // only start drag if press happens inside the aside area
+          startXRef.current = e.clientX;
+          setDragging(true);
+          // capture pointer so we continue to receive move/up
+          try { (e.target as Element).setPointerCapture?.(e.pointerId); } catch {}
+        }}
+        onPointerMove={(e) => {
+          if (!dragging) return;
+          const delta = e.clientX - startXRef.current;
+          // only consider rightward drags
+          setDragOffset(Math.max(0, delta));
+        }}
+        onPointerUp={(e) => {
+          if (!dragging) return;
+          setDragging(false);
+          const width = asideRef.current?.getBoundingClientRect().width || window.innerWidth;
+          const shouldClose = dragOffset > Math.min(200, width * 0.35);
+          setDragOffset(0);
+          if (shouldClose) onClose();
+        }}
+        onPointerCancel={() => {
+          setDragging(false);
+          setDragOffset(0);
+        }}
+        className={`fixed top-0 right-0 h-full w-full sm:w-4/5 md:w-1/2 max-w-[900px] bg-black/40 shadow-2xl transform flex flex-col`}
+        style={{
+          zIndex: 2147483648,
+          willChange: 'transform, opacity',
+          // compute transform: if not visible -> offscreen (100%), else translate by dragOffset px to the right
+          transform: visible ? `translateX(${Math.min(100, (dragOffset / (asideRef.current?.offsetWidth || window.innerWidth)) * 100)}%)` : 'translateX(100%)',
+          transition: dragging ? 'none' : 'transform 0.45s cubic-bezier(.2,.8,.2,1)'
+        }}
       >
         <header className="p-4 border-b flex items-center justify-between">
           <div>
             <h3 className="text-lg font-semibold">{title || "Weather"}</h3>
           </div>
-          {/* <div>
-            <button onClick={onClose} className="px-3 py-1 bg-gray-100 rounded">Close</button>
-          </div> */}
+          <div className=" sm:hidden">
+            <button onClick={onClose} className="px-3 py-1 bg-gray-100 rounded text-black">Close</button>
+          </div>
         </header>
 
         {/* month picker (select) */}
-        <div className="p-4  flex items-center gap-4 rounded">
-          <label className="text-xl font-medium text-white">Month</label>
+        <div className="p-4  flex items-center gap-4 rounded flex-wrap">
+          <label className="text-lg font-medium text-white">Month</label>
           <select
-            className="w-44 px-3 py-2 rounded bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+            className="w-44 sm:w-48 px-3 py-2 rounded bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
             defaultValue=""
             onChange={(e) => {
               const val = e.target.value;
