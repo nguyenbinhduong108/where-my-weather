@@ -1,7 +1,7 @@
 "use client";
 
 import React, { memo, useEffect, useMemo, useRef } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "@/styles/animations.css";
@@ -109,15 +109,16 @@ const MarkerItem = memo(function MarkerItem({
 const WorldMap: React.FC<Props> = ({ regions, setRegions }) => {
   // ensure when noWrap=true we don't zoom out so far that the tile world is smaller than viewport
   const [minZoom, setMinZoom] = React.useState<number>(2);
+  const [mapInstance, setMapInstance] = React.useState<L.Map | null>(null);
 
   React.useEffect(() => {
     const calcMinZoom = () => {
       const w = window.innerWidth || document.documentElement.clientWidth || 1024;
       const h = window.innerHeight || document.documentElement.clientHeight || 768;
-      // For tiles (256px) we need 256 * 2^z >= width AND >= height
-      // Solve for z: z >= log2(w/256) and z >= log2(h/256) -> take max
-      const zW = Math.ceil(Math.log2(Math.max(1, w / 256)));
-      const zH = Math.ceil(Math.log2(Math.max(1, h / 256)));
+  // For tiles (256px) we need 256 * 2^z >= dimension (tile world must be at least viewport size)
+  const tileSize = 256;
+  const zW = Math.ceil(Math.log2(Math.max(1, w / tileSize)));
+  const zH = Math.ceil(Math.log2(Math.max(1, h / tileSize)));
       const z = Math.max(zW, zH);
       setMinZoom(Math.max(0, z));
     };
@@ -126,6 +127,24 @@ const WorldMap: React.FC<Props> = ({ regions, setRegions }) => {
     window.addEventListener('resize', calcMinZoom);
     return () => window.removeEventListener('resize', calcMinZoom);
   }, []);
+
+  // When map instance or minZoom changes, enforce bounds/zoom on the map
+  React.useEffect(() => {
+    if (!mapInstance) return;
+    try {
+      const bounds = L.latLngBounds([[-85, -180], [85, 180]]);
+      // enforce panning limits
+      mapInstance.setMaxBounds(bounds);
+      // apply min zoom
+      if ((mapInstance as any).setMinZoom) (mapInstance as any).setMinZoom(minZoom);
+      // if current zoom is less than desired min, bump it up
+      const desired = Math.max(2, minZoom);
+      if (mapInstance.getZoom() < desired) mapInstance.setZoom(desired);
+    } catch (err) {
+      // swallow leaflet errors in environments without DOM
+      // console.debug('map enforce', err);
+    }
+  }, [mapInstance, minZoom]);
 
   // basemap options (you can add/remove): key -> { url, attribution }
   const basemapOptions: Record<string, { url: string; attribution: string }> = {
@@ -152,11 +171,20 @@ const WorldMap: React.FC<Props> = ({ regions, setRegions }) => {
   };
 
   const [basemapKey, setBasemapKey] = React.useState<string>("imagery");
+
+  // helper to grab map instance via react-leaflet hook
+  function MapInitializer({ onMap }: { onMap: (m: L.Map) => void }) {
+    const map = useMap();
+    React.useEffect(() => {
+      onMap(map);
+    }, [map, onMap]);
+    return null;
+  }
   return (
     <MapContainer
       center={[20, 0]}
       // ensure initial zoom respects calculated minZoom
-      zoom={Math.max(2, minZoom)}
+  zoom={Math.max(2, minZoom)}
       minZoom={minZoom}
       // use fixed inset so map always fills viewport and isn't constrained by parent layout
       style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, width: '100%', height: '100%' }}
@@ -166,6 +194,7 @@ const WorldMap: React.FC<Props> = ({ regions, setRegions }) => {
       ]}
       maxBoundsViscosity={1.0}
     >
+      <MapInitializer onMap={(m) => setMapInstance(m)} />
       <TileLayer
         attribution={basemapOptions[basemapKey].attribution}
         url={basemapOptions[basemapKey].url}
