@@ -53,3 +53,27 @@ html, body, #__next, main {
   width: 0px;
   height: 0px;
 }
+
+/* Khi gần mép phải → dịch box sang trái */
+.flip-x .marker-box {
+  transform: translateX(-90%) rotate(-45deg);
+}
+.flip-x .group-hover\:rotate-0 {
+  transform: translateX(-90%) rotate(0deg) !important;
+}
+
+/* Khi gần mép dưới → dịch box lên trên */
+.flip-y .marker-box {
+  transform: translateY(-90%) rotate(-45deg);
+}
+.flip-y .group-hover\:rotate-0 {
+  transform: translateY(-90%) rotate(0deg) !important;
+}
+
+/* Nếu vừa gần phải vừa gần dưới */
+.flip-x.flip-y .marker-box {
+  transform: translate(-90%, -90%) rotate(-45deg);
+}
+.flip-x.flip-y .group-hover\:rotate-0 {
+  transform: translate(-90%, -90%) rotate(0deg) !important;
+}

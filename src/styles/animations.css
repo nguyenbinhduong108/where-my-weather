@@ -16,3 +16,24 @@
 .drop-pin {
   animation: drop-pin 0.6s ease-out;
 }
+
+/* Flip khi gần mép */
+.marker-box.flip-x {
+  transform-origin: right center !important;
+}
+
+.marker-box.flip-x:hover {
+  transform: translateX(-208px) rotate(0) !important;
+}
+
+.marker-box.flip-y {
+  transform-origin: center bottom !important;
+}
+
+.marker-box.flip-y:hover {
+  transform: translateY(-208px) rotate(0) !important;
+}
+
+.marker-box.flip-x.flip-y:hover {
+  transform: translate(-208px, -208px) rotate(0) !important;
+}
