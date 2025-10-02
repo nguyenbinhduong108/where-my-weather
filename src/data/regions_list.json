@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "total_regions": 26,
-    "creation_date": "2025-09-22T17:02:29.456620",
+    "total_regions": 47,
+    "creation_date": "2025-10-02T16:07:07.536310",
     "description": "Danh sách các khu vực để khai thác"
   },
   "regions": {
@@ -160,6 +160,132 @@
       "lat": 24.7136,
       "lon": 46.6753,
       "continent": "Asia"
+    },
+    "south_korea_seoul": {
+      "name": "Seoul, Hàn Quốc",
+      "lat": 37.5665,
+      "lon": 126.978,
+      "continent": "Asia"
+    },
+    "philippines_manila": {
+      "name": "Manila, Philippines",
+      "lat": 14.5995,
+      "lon": 120.9842,
+      "continent": "Asia"
+    },
+    "indonesia_jakarta": {
+      "name": "Jakarta, Indonesia",
+      "lat": -6.2088,
+      "lon": 106.8456,
+      "continent": "Asia"
+    },
+    "malaysia_kuala_lumpur": {
+      "name": "Kuala Lumpur, Malaysia",
+      "lat": 3.139,
+      "lon": 101.6869,
+      "continent": "Asia"
+    },
+    "pakistan_karachi": {
+      "name": "Karachi, Pakistan",
+      "lat": 24.8607,
+      "lon": 67.0011,
+      "continent": "Asia"
+    },
+    "new_zealand_auckland": {
+      "name": "Auckland, New Zealand",
+      "lat": -36.8485,
+      "lon": 174.7633,
+      "continent": "Oceania"
+    },
+    "netherlands_amsterdam": {
+      "name": "Amsterdam, Hà Lan",
+      "lat": 52.3676,
+      "lon": 4.9041,
+      "continent": "Europe"
+    },
+    "switzerland_zurich": {
+      "name": "Zurich, Thụy Sĩ",
+      "lat": 47.3769,
+      "lon": 8.5417,
+      "continent": "Europe"
+    },
+    "sweden_stockholm": {
+      "name": "Stockholm, Thụy Điển",
+      "lat": 59.3293,
+      "lon": 18.0686,
+      "continent": "Europe"
+    },
+    "norway_oslo": {
+      "name": "Oslo, Na Uy",
+      "lat": 59.9139,
+      "lon": 10.7522,
+      "continent": "Europe"
+    },
+    "greece_athens": {
+      "name": "Athens, Hy Lạp",
+      "lat": 37.9838,
+      "lon": 23.7275,
+      "continent": "Europe"
+    },
+    "turkey_istanbul": {
+      "name": "Istanbul, Thổ Nhĩ Kỳ",
+      "lat": 41.0082,
+      "lon": 28.9784,
+      "continent": "Europe"
+    },
+    "usa_washington": {
+      "name": "Washington D.C., Mỹ",
+      "lat": 38.9072,
+      "lon": -77.0369,
+      "continent": "North America"
+    },
+    "mexico_mexico_city": {
+      "name": "Thành phố Mexico, Mexico",
+      "lat": 19.4326,
+      "lon": -99.1332,
+      "continent": "North America"
+    },
+    "cuba_havana": {
+      "name": "Havana, Cuba",
+      "lat": 23.1136,
+      "lon": -82.3666,
+      "continent": "North America"
+    },
+    "chile_santiago": {
+      "name": "Santiago, Chile",
+      "lat": -33.4489,
+      "lon": -70.6693,
+      "continent": "South America"
+    },
+    "colombia_bogota": {
+      "name": "Bogotá, Colombia",
+      "lat": 4.711,
+      "lon": -74.0721,
+      "continent": "South America"
+    },
+    "peru_lima": {
+      "name": "Lima, Peru",
+      "lat": -12.0464,
+      "lon": -77.0428,
+      "continent": "South America"
+    },
+    "morocco_casablanca": {
+      "name": "Casablanca, Morocco",
+      "lat": 33.5731,
+      "lon": -7.5898,
+      "continent": "Africa"
+    },
+    "kenya_nairobi": {
+      "name": "Nairobi, Kenya",
+      "lat": -1.2921,
+      "lon": 36.8219,
+      "continent": "Africa"
+    },
+    "ethiopia_addis_ababa": {
+      "name": "Addis Ababa, Ethiopia",
+      "lat": 9.0192,
+      "lon": 38.7525,
+      "continent": "Africa"
     }
   }
 }
