@@ -126,7 +126,7 @@ export default function WeatherDrawer({ open, onClose, title, children, onMonthS
               const year = 2025;
               const start = new Date(year, monthIndex, 1);
               const now = new Date();
-              const maxDate = new Date(2025, 8, 20); // 2025-09-20
+              const maxDate = new Date(2025, 9, 4); // 2025-10-04
               let end: Date;
               if (monthIndex < now.getMonth() || now.getFullYear() > year) {
                 end = new Date(year, monthIndex + 1, 0);
@@ -149,7 +149,7 @@ export default function WeatherDrawer({ open, onClose, title, children, onMonthS
             <option value="">Select month</option>
             {Array.from({ length: 12 }).map((_, idx) => {
               const monthLabel = new Date(2025, idx, 1).toLocaleString('en-US', { month: 'short' });
-              const disabled = idx > 8; // after Sep 2025
+              const disabled = idx > 9; // after Sep 2025
               return (
                 <option key={idx} value={String(idx)} disabled={disabled}>
                   {monthLabel} 2025{disabled ? ' (disabled)' : ''}

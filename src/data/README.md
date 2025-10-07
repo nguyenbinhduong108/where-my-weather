@@ -37,4 +37,4 @@
 ### 3.4. Khu vực
 - **File**: `regions_list.json`  
 - **Mô tả**: Thông tin các khu vực dùng để khai thác dữ liệu  
-- **Thông tin khác**: Bao gồm **kinh độ**, **vĩ độ**, **tên thành phố**, **châu lục** (hiện tại có thông tin của 26 khu vực)
+- **Thông tin khác**: Bao gồm **kinh độ**, **vĩ độ**, **tên thành phố**, **châu lục** (hiện tại có thông tin của 47 khu vực)
